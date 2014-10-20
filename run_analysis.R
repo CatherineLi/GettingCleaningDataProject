@@ -62,5 +62,5 @@ table(datafull$subjectID, datafull$activities)
 Splitinto180Groups<-split(datafull[,c(3:563)], datafull[,c(1:2)])
 
 # for each combination (subjectID*activities), calculate the column average for each feature/variable.
-SecondTidyData<-lapply(Splitinto180Groups, colMeans)
-write.table(SecondTidyData, "C:/Users/qli/Desktop/GettingAndCleaningData20140927/project/SecondTidyData.txt", sep="\t", row.name=FALSE)
+TidyData<-lapply(Splitinto180Groups, colMeans)
+write.table(TidyData, "C:/Users/qli/Desktop/GettingAndCleaningData20140927/project/TidyData.txt", sep="\t", row.name=FALSE)

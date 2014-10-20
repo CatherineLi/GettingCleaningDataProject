@@ -67,8 +67,11 @@ Task 5: From the data set in step 4, creates a second, independent tidy data set
 
 To complete this task, I first splitted data into 180 groups, a group per subject per activity (180=30 subjects * 6 activities). I then use lappy to calculate the column average for each varaible. The resultant dataset is labeled "SecondTidyData". At the end, I write "SecondTidyData" into a txt file. 
 
-SecondTidyData<-lapply(Splitinto180Groups, colMeans)
-write.table(SecondTidyData, "C:/Users/qli/Desktop/GettingAndCleaningData20140927/project/SecondTidyData.txt", sep="\t", row.name=FALSE)
+TidyData<-lapply(Splitinto180Groups, colMeans)
+write.table(TidyData, "C:/Users/qli/Desktop/GettingAndCleaningData20140927/project/TidyData.txt", sep="\t", row.name=FALSE)
+
+
+
 
 
 

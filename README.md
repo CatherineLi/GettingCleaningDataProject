@@ -4,6 +4,7 @@ GettingCleaningDataProject
 Per request, this README.md serves the purpose of describing how the script run_analysis.R works.  Given this project requires five tasks to be completed, I will discuss how this particular script can accomplish each one by one.
 
 Task 1: Merges the train and the test sets to create one data set.
+-------------------------------------------------------------------
 
 
 Step 1: 
@@ -43,22 +44,26 @@ testdata<-cbind(subject_test, y_test, x_test)
 datafull<-rbind(traindata, testdata)
 
 
-Task 2: Extracts only the measurements on the mean and standard deviation for each measurement. 
+Task 2: Extracts only the measurements on the mean and standard deviation for each measurement.
+-------------------------------------------------------------------------------------------------
 
 I first created a logical varaible returning TRUE for those variable names containing mean or standard deviation, and FALSE otherwise. I then use this logical variable (named "cond") to subset the fulldata.
 
 cond<-grepl("mean|std", names(datafull)) 
 MeanStdExtracted<-datafull[,cond]
 
-Task 3: Uses descriptive activity names to name the activities in the data set
+Task 3: Uses descriptive activity names to name the activities in the data set.
+-------------------------------------------------------------------------------
 
 For this task, I use "activity_labels" as a guidance to replace values "1" with "WALKING", "2" with "WALKING_UPSTAIRS" etc.
 
 Task 4: Appropriately labels the data set with descriptive variable names. 
+---------------------------------------------------------------------------
 
 It is completed in 1. Currently, all varaibles in datafull are descriptive.
 
 Task 5: From the data set in step 4, creates a second, independent tidy data setwith the average of each variable for each activity and each subject.
+----------------------------------------------------------------------------------------------------------------------------
 
 To complete this task, I first splitted data into 180 groups, a group per subject per activity (180=30 subjects * 6 activities). I then use lappy to calculate the column average for each varaible. The resultant dataset is labeled "SecondTidyData". At the end, I write "SecondTidyData" into a txt file. 
 

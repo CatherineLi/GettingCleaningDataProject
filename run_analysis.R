@@ -46,8 +46,6 @@ datafull$activities[datafull$activities==6] <- "LAYING"
 
 
 # 4. Appropriately labels the data set with descriptive variable names. 
-# Given all features are already descriptive, I only renamed subject and 
-# activities column.
 #=====================================================================+
 
 # Answer: it is completed in 1. Currently, all varaibles in datafull are

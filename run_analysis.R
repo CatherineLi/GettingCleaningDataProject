@@ -61,6 +61,14 @@ table(datafull$subjectID, datafull$activities)
 # split data into 30*6=180 groups; each group describes one subjectID and one activity only.
 Splitinto180Groups<-split(datafull[,c(3:563)], datafull[,c(1:2)])
 
+
 # for each combination (subjectID*activities), calculate the column average for each feature/variable.
-TidyData<-lapply(Splitinto180Groups, colMeans)
+TidyDataTemp<-sapply(Splitinto180Groups, colMeans) # The dimension is 561*180
+TidyData<-t(TidyDataTemp) # Transpose the TidyData to make sure the dimension is 180*561
 write.table(TidyData, "C:/Users/qli/Desktop/GettingAndCleaningData20140927/project/TidyData.txt", sep="\t", row.name=FALSE)
+
+
+
+
+
+

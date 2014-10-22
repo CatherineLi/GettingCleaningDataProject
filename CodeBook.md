@@ -90,6 +90,7 @@ X29. LAYING	11
 X30. LAYING	11			
 	Subject  30  Performing Activities of  LAYING			
 
+
 X1. SITTING	11
 	Subject 1  Performing Activities of  SITTING
 		

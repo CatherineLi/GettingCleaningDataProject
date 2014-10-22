@@ -65,13 +65,11 @@ It is completed in 1. Currently, all varaibles in datafull are descriptive.
 Task 5: From the data set in step 4, creates a second, independent tidy data setwith the average of each variable for each activity and each subject.
 ----------------------------------------------------------------------------------------------------------------------------
 
-To complete this task, I first splitted data into 180 groups, a group per subject per activity (180=30 subjects * 6 activities). I then use lappy to calculate the column average for each varaible. The resultant dataset is labeled "TidyData". At the end, I write "TidyData" into a txt file. 
+To complete this task, I first splitted data into 180 groups, a group per subject per activity (180=30 subjects * 6 activities). I then use lappy to calculate the column average for each feature varaible. The resultant dataset is labeled "TidyDataTemp". I then transposed TidyDataTemp to ensure the final TidyData has 180 rows and 561 columns. At the end, I write "TidyData" into a txt file. 
 
-TidyData<-lapply(Splitinto180Groups, colMeans)
+TidyDataTemp<-sapply(Splitinto180Groups, colMeans) # The dimension is 561*180
+TidyData<-t(TidyDataTemp) # Transpose the TidyData to make sure the dimension is 180*561
 write.table(TidyData, "C:/Users/qli/Desktop/GettingAndCleaningData20140927/project/TidyData.txt", sep="\t", row.name=FALSE)
-
-
-
 
 
 

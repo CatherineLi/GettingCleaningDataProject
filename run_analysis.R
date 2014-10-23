@@ -1,10 +1,7 @@
 # 1. Merges the training and the test sets to create one data set.
-# 4. Appropriately labels the data set with descriptive variable names. 
 #======================================================================
 
 # read in subject data for both train and test; rename the columns
-
-
 subject_train<-read.table("./project/UCI HAR Dataset/train/subject_train.txt")
 subject_test<-read.table("./project/UCI HAR Dataset/test/subject_test.txt")
 names(subject_train)="subjectID"
@@ -47,28 +44,25 @@ datafull$activities[datafull$activities==6] <- "LAYING"
 
 # 4. Appropriately labels the data set with descriptive variable names. 
 #=====================================================================+
+# remove "-" in column variables
 
-# Answer: it is completed in 1. Currently, all varaibles in datafull are
-# descriptive.
+datafullRemovingDash<-gsub("-", "", names(datafull))
+names(datafull)=datafullRemovingDash
 
+# remove "()" in column variables.
+datafullRemovingPar<-gsub("\\()", "", names(datafull))
+names(datafull)=datafullRemovingPar
 
 # 5. From the data set in step 4, creates a second, independent tidy data set
 #  with the average of each variable for each activity and each subject.
 #======================================================================
-# understand the data
-table(datafull$subjectID, datafull$activities)
-
 # split data into 30*6=180 groups; each group describes one subjectID and one activity only.
 Splitinto180Groups<-split(datafull[,c(3:563)], datafull[,c(1:2)])
-
 
 # for each combination (subjectID*activities), calculate the column average for each feature/variable.
 TidyDataTemp<-sapply(Splitinto180Groups, colMeans) # The dimension is 561*180
 TidyData<-t(TidyDataTemp) # Transpose the TidyData to make sure the dimension is 180*561
+
+# write the tidydata into txt file
 write.table(TidyData, "C:/Users/qli/Desktop/GettingAndCleaningData20140927/project/TidyData.txt", sep="\t", row.name=FALSE)
-
-
-
-
-
 

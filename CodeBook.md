@@ -45,19 +45,21 @@ TidyData represents the average of all the raw measures of a feature variable, f
 In raw dataset "datafull", for subjectID==1 and activities==LAYING, here is how data appears for feature variable tBodyAccmeanX (I focus on one feature only for ease of illustration, 
 the same thing applies to all the other 560 features).
 
-subjectID    activities     tBodyAccmeanX
-1            LAYING         0.4
-1            LAYING         0.28
-1            LAYING         0.34
-1            LAYING         0.01
+|subjectID   |activities     |tBodyAccmeanX
+|------------|---------------|-------------
+|1           |LAYING         |0.4
+|1           |LAYING         |0.28
+|1           |LAYING         |0.34
+|1           |LAYING         |0.01
 ...
 
 In TidyData, each row represents a subjectID performing an activity. That is, there is only one row for "subjectID==1 & activities=="LAYING"". To generate a summary of measures about 
 tBodyAccmeanX for "subjectID==1 & activities=="LAYING", I took an average of all the raw data values by colMeans and and the resultant  average value shows up in the tidydata. 
 Here is how TidyData replaces datafull to capture only the summary information.
 
-             tBodyAccmeanX
-         1   average value of (0.4, 0.28, 0.34, 0.01)
+     |tBodyAccmeanX
+  ---------------------------------------------
+ |1  |average value of (0.4, 0.28, 0.34, 0.01)
 
 
 TidyData Variable Description
@@ -697,9 +699,4 @@ angle.Y.gravityMean.
 angle.Z.gravityMean.
 
 
-
-
-
-
-	
 

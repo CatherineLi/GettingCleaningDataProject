@@ -63,7 +63,7 @@ datafull$activities[datafull$activities==6] <- "LAYING"
 
 Task 4: Appropriately labels the data set with descriptive variable names. 
 ---------------------------------------------------------------------------
-This task consists of two steps. In step 1, I removed dashes in the varaible names; In step 2, I removed parenthesis. 
+Given all 563 variable names are currently descriptive, I did clean up work to remove dashes and parenthesis. 
 
 # remove "-" in column variables
 datafullRemovingDash<-gsub("-", "", names(datafull))
